@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
+
+*
+{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1em;
+}
+
+html 
+{
+    scroll-behavior: smooth;
+}
+
+.sidebar        /*  setting sidebar's appearance  */
+{
+    height: 100%;
+    width: 0;
+    font-size: 2em;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 2%;
+}
+
+.sidebar a      /*  appearance of elements of sidebar   */
+{
+    padding: 5%;
+    text-decoration: none;
+    color: #a7a3a3;
+    display: block;
+    transition: 0.3s;
+}
+  
+.sidebar a:hover    /*  hover over sidebar's elements   */
+{
+    color: #f1f1f1;
+}
+  
+.sidebar .closebtn  /*  close button    */
+{
+    position: absolute;
+    top: 0;
+    right: 10%;
+    font-size: 150%;
+    margin-left: 20%;
+}
+
+#main
+{
+    color: rgb(27, 27, 27);
+    
+    
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-bottom: rgb(212, 212, 212) solid .25px;
+    color: rgb(228, 228, 228);
+    transition: margin-left .5s;
+    padding-top: 2%;
+    background-color: rgba(19, 19, 19, 0.664);
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.712)), url(https://wallpapercave.com/wp/GjrkLhP.jpg);
+    background-blend-mode: multiply;
+    background-size:cover;
+    background-position:center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.openbtn
+{
+    font-size: 120%;
+    height: 120%;
+    margin-left:2%;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #111;
+    color: white;
+    border: none;
+    position: fixed;
+    top: 2%;
+    width: 8%;
+    height: 3%;
+}
+  
+.openbtn:hover
+{
+    background-color: #444;
+}
+
+.label
+{
+    text-align: left;
+    font-size: 160%;
+    text-decoration: none;
+}
+
+.content-section
+{
+    display:flex;
+    flex-direction: column;
+    font-size: 200%;
+    align-items: center;
+    max-width: 300%;
+    margin: 0em auto;
+    padding: 5%;
+}
+
+.project-section
+{
+    display:flex;
+    flex-direction: column;
+    font-size: 150%;
+    align-items: center;
+    max-width: 300%;
+    margin: 0em auto;
+    padding: 5%;
+}
+
+.container
+{
+    max-width: 300%;
+    margin: 0em auto;
+    padding: 2%;
+}
+
+.btn
+{
+    font-size: 20px;
+    cursor: pointer;
+    background:none;
+    padding: 10px 15px;
+    border: .25px solid rgb(212,212,212);
+    border-radius: 10px;
+}
+
+.btn a
+{
+    text-decoration: none;
+}
+
+.btn:hover
+{
+    background-color: rgba(255, 255, 255, 0.329);
+}
+
+.image
+{
+    width: 225px;
+    height: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.image-round
+{
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 300px;
+}
+
+.items
+{
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item
+{
+    padding: 2.5em;
+    margin: 2em;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    color: white;
+    transition: all .2s ease-in-out;
+}
+
+.item:hover 
+{
+    transform: scale(1.1);
+}
+
+.item-block
+{
+    background-color: rgb(224, 224, 224);
+    color: black;
+}
+
+.item-heading
+{
+    padding: .5em;
+}
+
+.main-footer
+{
+    background-color: white;
+    color: #111;
+    margin-bottom: 0;
+    
+}
+
+.main-footer-container
+{
+    display: flex;
+    align-items: center;
+}
+
+.main-footer-container ul
+{
+    flex-grow: 1;
+    text-align: end;
+}
+
+.footer-nav ul
+{
+    margin: 0;
+}
+
+.footer-nav li
+{
+    display: inline;
+    padding: 0 ,.5em;
+}
+
+.footer-nav a
+{
+    display: inline-block;
+    padding: 1em;
+    color: white;
+    text-decoration: none;
+}
+
+.footer-nav a:hover {           /*OK*/
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.footer-nav img {           /*OK*/
+    width: 30px;
+    height: 30px;
+    align-items: center;
+}
