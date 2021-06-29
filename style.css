@@ -154,7 +154,6 @@ html
     display: block;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 .image-round
@@ -167,6 +166,17 @@ html
     border-radius: 300px;
 }
 
+.fade-in
+{
+    opacity: 0;
+    transition: opacity 250ms ease-in;
+}
+
+.fade-in.appear
+{
+    opacity: 1;
+}
+
 .items
 {
     text-decoration: none;
@@ -177,7 +187,7 @@ html
 
 .item
 {
-    padding: 2.5em;
+    padding: 1.5em;
     margin: 2em;
     align-items: center;
     width: 300px;

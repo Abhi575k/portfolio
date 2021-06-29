@@ -7,7 +7,29 @@ function openNav() {
     document.getElementById("mySidebar").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
   }
+  		
+const faders = document.querySelectorAll(".fade-in");
 
+const appearOptions = {
+  threshold: 0,
+  rootMargin: "0px 0px -50px 0px"
+};
 
-  //The idea is to scroll the page to the required section on selecting the option from menu.
-  //By doing so, only one html file is required.
+const appearOnScroll = new IntersectionObserver(function(
+  entries,
+  appearOnScroll
+){
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) {
+      return;
+    } else {
+      entry.target.classList.add("appear");
+      appearOnScroll.unobserve(entry.target);
+    }
+  })
+},
+appearOptions);
+
+faders.forEach(fader => {
+  appearOnScroll.observe(fader);
+});
