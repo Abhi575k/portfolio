@@ -1,227 +1,80 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <title>AbhinavIITK</title>
-        <meta name="Abhinav Kumar Singh IITK" content="Webhome Directory">
-        <link rel="stylesheet" href="style.css"/>
-        <link rel = "icon" href ="https://redbotsecurity.com/wp-content/uploads/2018/04/pentesting-icon.png" type = "image/x-icon">
-    
-        <script src="https://kit.fontawesome.com/5d50a1be74.js" crossorigin="anonymous"></script>
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
 
-    <body>
+  <!-- Disable tap highlight on IE -->
+  <meta name="Abhinav Kumar Singh IITK" content="Webhome Directory">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+  <link rel = "icon" href ="https://redbotsecurity.com/wp-content/uploads/2018/04/pentesting-icon.png" type = "image/x-icon">
+  <title>AbhinavIITK</title> 
+  <link href="./main.3f6952e4.css" rel="stylesheet">
+</head>
 
-        <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#more">More</a>
-            <a href="#contact">Contact</a>
+<body class="minimal">
+  <div id="site-border-left"></div>
+  <div id="site-border-right"></div>
+  <div id="site-border-top"></div>
+  <div id="site-border-bottom"></div>
+  <header>
+    <nav class="navbar  navbar-fixed-top navbar-inverse">
+      <div class="container">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav ">
+            <li><a href="./index.html" title="">01 : Home</a></li>
+            <li><a href="./projects.html" title="">02 : Projects</a></li>
+            <li><a href="./about.html" title="">03 : About me</a></li>
+            <li><a href="./contact.html" title="">04 : Contact</a></li>
+            <li><a href="./more.html" title="">05 : More</a></li>
+          </ul>
+        </div> 
+      </div>
+    </nav>
+  </header>
+  <!-- Add your site or app content here -->
+    <div class="hero-full-container background-image-container white-text-container" style="background-image: url('./assets/images/space.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="hero-full-wrapper">
+              <div class="text-content">
+                <h1>Hello,<br>
+                  <span id="typed-strings">
+                    <span>I'm Abhinav Kumar Singh</span>
+                    <span>Tech Enthusiast</span>
+                    <span>Sophomore</span>
+                  </span>
+                  <span id="typed"></span>
+                </h1>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        
-        <div id="main">
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      type();
+      movingBackgroundImage();
+    });
+  </script>
 
-            <button class="openbtn" onclick="openNav()"><i class="fas fa-bars"></i></i> Menu</button>
 
-            <section class="content-section container">
-                <p>Abhinav Kumar Singh</p>
-            </section>
-            
-            <section class="content-section" id="about">
-                <h2 class="label">About Me</h2>
-                <div>
-                    <img class="image-round fade-in" src="images/dp.jpg">
-                    <p>
-                        Hi! I'm Abhinav Kumar Singh, a fellow CSE(B.Tech) student(Y20) at IITK.
-                        I'm interested in cybersecurity and pentesting. Apart from this, I like to work on web development and Android-app-development.
-                        My hometown is Kashipur(Uttarakhand).
-                    </p>
-                </div>
-            </section>
+  <script type="text/javascript" src="./main.70a66962.js"></script>
+</body>
 
-            <section class="project-section" id="projects">
-                <h2 class="label">Projects</h2>
-
-                <div class="items">
-                    <!--botMegumin-->
-                    <a style="text-decoration:none" href ="https://github.com/Abhi575k/botMegumin" target="_blank">
-                        <div class="item item-block">
-                            <div>
-                                <img src="images/projects/botMegumin.jpg" class="image fade-in">
-                            </div>
-                            <div class="item-heading">
-                                <h3>botMegumin</h3>
-                            </div>
-                            <div>
-                                Python | Discord.py
-                            </div>
-                        </div>
-                    </a>
-                    <!--Sentiment Analysis-->
-                    <a style="text-decoration:none" href ="https://github.com/Abhi575k/sentiment-analysis-on-amazon-reviews" target="_blank">
-                        <div class="item item-block">
-                            <div>
-                                <img src="images/projects/sentimentAnalysis.jpg" class="image fade-in">
-                            </div>
-                            <div class="item-heading">
-                                <h3>Sentiment Analysis</h3>
-                            </div>
-                            <div>
-                                Python | ML
-                            </div>
-                        </div>
-                    </a>
-                    <!--Youtube Downloader-->
-                    <a style="text-decoration:none" href ="" target="_blank">
-                        <div class="item item-block">
-                            <div>
-                                <img src="images/projects/youtubeDownloader.webp" class="image fade-in">
-                            </div>
-                            <div class="item-heading">
-                                <h3>Youtube Downloader</h3>
-                            </div>
-                            <div>
-                                Python | Kivy | Buildozer
-                            </div>
-                        </div>
-                    </a>
-                    <!--Shell scripts-->
-                    <a style="text-decoration:none" href ="https://github.com/Abhi575k/shell-scripts" target="_blank">
-                        <div class="item item-block">
-                            <div>
-                                <img src="images/projects/pentest.jpg" class="image fade-in">
-                            </div>
-                            <div class="item-heading">
-                                <h3>Info Gathering</h3>
-                            </div>
-                            <div>
-                                Python | Bin/Bash
-                            </div>
-                        </div>
-                    </a>
-                    <!--portfolio-->
-                    <a style="text-decoration:none" href ="https://github.com/Abhi575k/portfolio" target="_blank">
-                        <div class="item item-block">
-                            <div>
-                                <img src="images/projects/webDev.png" class="image fade-in">
-                            </div>
-                            <div class="item-heading">
-                                <h3>ACA Web-Dev</h3>
-                            </div>
-                            <div>
-                                HTML | CSS | Javascript
-                            </div>
-                        </div>
-                    </a>
-
-                </div>
-            </section>
-
-            <section class="content-section" id="more">
-                <h2 class="label">More About Me</h2>
-
-                <div class="items">
-                    <a style="text-decoration:none" href ="" target="_blank">
-                        <div class="item">
-                            <div>
-                                <img src="images/more/gameDev.png" class="image fade-in">
-                            </div>
-                            <div class="item-heading">
-                                <h3>Game Developer</h3>
-                            </div>
-                            <div>
-                                Unity | C#
-                            </div>
-                        </div>
-                    </a>
-
-                    <a style="text-decoration:none" href ="" target="_blank">
-                        <div class="item">
-                            <div>
-                                <img src="images/more/androidDevelopment.png" class="image fade-in">
-                            </div>
-                            <div class="item-heading">
-                                <h3>App Developer</h3>
-                            </div>
-                            <div>
-                                Java | AndroidStudio
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </section>
-            <section class="content-section" id="contact">
-                <h2 class="label">Contact</h2>
-                <div class="items">
-                    <div class="item-heading">
-                        abhinav555k@gmail.com
-                    </div>
-                    <div class="item-heading">
-                        abhinavk20@iitk.ac.in
-                    </div>
-                    <div class="item-heading">
-                        +911234567890
-                    </div>
-                </div>
-            </section>
-            <footer class="main-footer">        <!--OK-->
-                <div class="container main-footer-container">
-                    <h2 class="label">Find Me On</h2>
-                    <ul class="footer-nav">
-                        <li>
-                            <!--Facebook-->
-                            <a href ="https://www.facebook.com/profile.php?id=100009524582541" target="_blank">
-                                <img src ="images/footer/facebook.png" width=30>
-                            </a>
-                        </li>
-                        <li>
-                            <!--Youtube-->
-                            <a href ="https://www.youtube.com/channel/UC7Hqkdyj48Xr7SYbIMmHdTg" target="_blank">
-                                <img src ="images/footer/youtube.png">
-                            </a>
-                        </li>
-                        <li>
-                            <!--Discord-->
-                            <a href ="https://discordapp.com/users/436061046860677120" target="_blank">
-                                <img src ="images/footer/discord.png" width=30>
-                            </a>
-                        </li> 
-                        <li>
-                            <!--Reditt-->
-                            <a href="https://www.reddit.com/u/EVIL_Spatula?utm_medium=android_app&utm_source=share" target="_blank">
-                                <img src="images/footer/reditt.png" width=30>
-                            </a>
-                        </li>
-                        <li>
-                            <!--Instagram-->
-                            <a href="https://www.instagram.com/earth_is__flat?r=nametag" target="_blank">
-                                <img src="images/footer/insta.png" width=30>
-                            </a>
-                        </li>
-                        <li>
-                            <!--Quora-->
-                            <a href="https://www.quora.com/profile/Abhinav-Kumar-2619" target="_blank">
-                                <img src="images/footer/quora.png" width=30>
-                            </a>
-                        </li>
-                        <li>
-                            <!--Github-->
-                            <a href="https://github.com/Abhi575k" target="_blank">
-                                <img src="images/footer/git.png">
-                            </a>
-                        </li>
-                        <li>
-                            <!--Steam-->
-                            <a href="https://s.team/p/crrc-dmrq/gbtghkdr" target="_blank">
-                                <img src="images/footer/steam.png" width=30>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </footer>
-        </div>
-        
-        <script src="script.js"></script>
-    </body>
 </html>
