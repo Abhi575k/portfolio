@@ -1,80 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abhinav Kumar Singh</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <h1 class="logo">Abhinav Kumar Singh</h1>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#workexp">Work-Ex</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
+    </header>
 
-<head>
-  <meta charset="UTF-8">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <meta content="width=device-width,initial-scale=1" name="viewport">
-  <meta content="description" name="description">
-  <meta name="google" content="notranslate" />
+    <main>
+      <section class="home" id="home" class="anchor">
+        <!-- <p>
+          Hi, I'm Abhinav, a fourth-year undergraduate at Indian Institute of
+          Technology, Kanpur. I'm pursuing my degree in Computer Science and
+          Engineering. I'm interested in network and system security, and
+          computer architecture. I'm active on
+          <a
+            href="https://app.hackthebox.com/users/1549946"
+            class="text-link"
+            target="_blank"
+          >
+            HackTheBox
+          </a>
+          and
+          <a
+            href="https://tryhackme.com/p/abhinavk20pt"
+            class="text-link"
+            target="_blank"
+          >
+            TryHackMe
+          </a>.
+        </p> -->
+      </section>
 
-  <!-- Disable tap highlight on IE -->
-  <meta name="Abhinav Kumar Singh IITK" content="Webhome Directory">
+      <section id="about" class="anchor">
+        <h2>About Me</h2>
+        <p>
+          I'm a fourth-year undergraduate at <b>Indian Institute of Technology
+          Kanpur</b>, pursuing my degree in <b>Computer Science and Engineering</b>. I have worked
+          as a Data Engineer at
+          <a href="https://www.simpl.co/" class="text-link" target="_blank">Simpl</a>
+          and as a Software Developer at
+          <a href="https://www.iitpal.com/" class="text-link" target="_blank">Prutor-IITPAL</a>.
+          I'm interested in network and system security, and computer
+          architecture and I'm active on
+          <a
+            href="https://app.hackthebox.com/users/1549946"
+            class="text-link"
+            target="_blank"
+          >
+            HackTheBox
+          </a>
+          and
+          <a
+            href="https://tryhackme.com/p/abhinavk20pt"
+            class="text-link"
+            target="_blank"
+          >
+            TryHackMe
+          </a>.
+        </p>
+        <p>
+          Here are a few write-ups of the boxes I've solved:
+          <a href="https://pointy-rhinoceros-d1b.notion.site/Hack-The-Box-32e006b7d3704ef6be1c60aa78a4e634" class="text-link" target="_blank">Notion</a>.
+          <br>
+          
+        </p>
+        <p>
+          I have also worked as an <b>Organiser(Public Relations)</b> at
+          <a href="https://antaragni.in/" class="text-link" target="_blank">Antaragni</a>
+          and as a Mentor for the project: <b>Web Development and UNIX</b> in coordination with
+          <a href="https://www.cse.iitk.ac.in/users/aca/" class="text-link" target="_blank">Association of Computing Activities, IITK</a>.
+        </p>
+        <p>
+          I'm currently a part-time Software Developer at
+          <a href="https://www.humanic.ai/" class="text-link" target="_blank">Humanic.ai</a>.
+        </p>
+      </section>
+
+      <section id="workexp" class="anchor">
+        <h2>Work Experience</h2>
+        <ul>
+          <li class>
+            <h3>Data Engineer at Simpl</h3>
+            <i>
+              Supervised by:
+              <a
+                href="https://www.linkedin.com/in/arush-kharbanda/"
+                class="text-link"
+                target="_blank"
+                >Mr. Arush Kharbanda</a
+              >
+            </i>
+            <br />
+            <i>May'23-July'23</i>
+            <table style="width: 100%">
+              <tr>
+                <th>Objective</th>
+                <td>
+                  The current <b>Fraud Detection</b> system uses a static model
+                  to predict the delinquency of a user. The aim is to implement
+                  a more dynamic approach to the problem by using
+                  <b>Automated Machine Learning</b> techniques. Given an input
+                  data, the model should be able to preprocess it needs and
+                  return the best possible fit and it's hyperparameters.
+                </td>
+              </tr>
+              <tr>
+                <th>Approach</th>
+                <td>
+                  <b>The first phase</b> involved understanding the current
+                  system and the data available. I worked with multiple
+                  variations of data and tweaked it manually.<br />
+                  <b>The second phase</b> involved exploring the different
+                  <b>AutoML</b> techniques and choosing the best one. I worked
+                  with various implementations of AutoML like: TPOT, pycaret,
+                  auto-sklearn, etc. <br />
+                  <b>The third phase</b> involved implementing the chosen
+                  technique and testing it. We finally decided to work with the
+                  implementation of AutoML in <b>Databricks</b>. We ran several
+                  simulations with different sizes of data. We also tried to use
+                  the encoded data to get better results.
+                </td>
+              </tr>
+              <tr>
+                <th>Results</th>
+                <td>
+                  The results were not as expected. The model was comparable to
+                  the current implementation in terms of selection and accuracy.
+                  However, the model preprocessed the data quite elegantly which
+                  gave us a lot of insights.
+
+                  <br />
+                  <b>Conclusion:</b> although the results generated by AutoML
+                  were not as expected, it could still be used as a reference.
+                  It can be used to figure out which ML algorithms will be the
+                  best fit for given data, and the data can then be preprocessed
+                  accordingly.
+                </td>
+              </tr>
+            </table>
+          </li>
+          <li>
+            <h3>Software Developer at Prutor-IITPAL</h3>
+            <i
+              >Supervised by:
+              <a
+                href="https://www.linkedin.com/in/rahulgarg1/"
+                class="text-link"
+                target="_blank"
+                >Mr. Rahul Garg</a
+              ></i
+            >
+            <br />
+            <i>May'22-July'22</i>
+            <table style="width: 100%">
+              <tr>
+                <th>Objective</th>
+                <td>
+                  The aim was to create a <b>Linux Teaching Platform</b>. The
+                  user should be able to login to the platform and access a file
+                  which contains the password to the next level.
+                </td>
+              </tr>
+              <tr>
+                <th>Approach</th>
+                <td>
+                  <b>The first phase</b> involved createing the environment. I
+                  created several <b>bash</b> scripts to create the users and
+                  directories. I also created a script to generate the password
+                  file. The permissions were handled using <b>ACLs</b>.
+                  <br />
+                  <b>The second phase</b> working on the security complexities
+                  of the problem. To isolate the user environment, we
+                  <b>dockerised</b> the platform and created a new container for
+                  each user. This was achieved using <b>port-forwarding</b>.
+                  <br />
+                  <b>The third phase</b> involved creating the web interface for
+                  the platform. I used <b>Flask</b> to create the web app.
+                </td>
+              </tr>
+            </table>
+          </li>
+          <li>
+            <h3>DSA Mentor at AccioJob</h3>
+            <i
+              >Supervised by:
+              <a
+                href="https://www.linkedin.com/in/utkarshsingh98/"
+                class="text-link"
+                target="_blank"
+                >Mr. Utkarsh Singh</a
+              ></i
+            >
+            <br />
+            <i>July'22-Dec'22</i>
+            <table style="width: 100%">
+              <tr>
+                <th>Responsibilities</th>
+                <td>
+                  <ul>
+                    <li>
+                      Mentored numerous students in mastering the fundamentals
+                      of <b>Data Structures and Algorithms</b> and related
+                      concepts.
+                    </li>
+                    <li>
+                      Organised mock interviews and technical assessments to
+                      prepare students for technical interviews at top tech
+                      companies.
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </li>
+        </ul>
+      </section>
+
+      <section id="projects" class="anchor">
+        <h2>Course Projects</h2>
+        <ul>
+          <li>
+            <h3>Java Mini Compiler</h3>
+            <i
+              >Supervised by:
+              <a href="https://www.cse.iitk.ac.in/users/swarnendu/" class="text-link" target="_blank"
+                >Dr. Swarnendu Biswas</a
+              ></i
+            >
+            <br />
+            <i>Compiler Design, Jan'23-Apr-23</i>
+            <p>
+              The aim of the project was to create a mini compiler for a subset
+              of Java. The compiler should be able to generate the assembly
+              code, which can then be run on a simulator. The lifecycle of the 
+              compiler is as follows:
+              <ul>
+                <li>
+                  <b>Lexical Analysis:</b> The input code is tokenized and
+                  converted into a stream of tokens. The tokens are categorised 
+                  into different types: keywords, identifiers, operators,
+                  literals and separators. This was achieved by creating regular expressions in  
+                  <a href="https://ftp.gnu.org/old-gnu/Manuals/flex-2.5.4/html_node/flex_toc.html" class="text-link" target="_blank">Flex</a>.
+                </li>
+                <li>
+                  <b>Syntax Analysis:</b> Next, the tokens are parsed to check
+                  if they follow the grammar of the language using 
+                  <a href="https://www.gnu.org/software/bison/manual/html_node/index.html#SEC_Contents" class="text-link" target="_blank">Bison</a>. 
+                  The corresponding Abstract Syntax Tree (AST) is generated using
+                  <a href="https://graphviz.org/doc/info/lang.html" class="text-link" target="_blank">Dot</a>.
+                </li>
+                <li>
+                  <b>Semantic Analysis:</b> We then create the symbol table and
+                  check for semantic errors. The symbol table is created
+                  manually using C++ vectors and maps.
+                </li>
+                <li>
+                  <b>Code Generation:</b> Then, the 3ac code is generated using
+                  the AST. The 3ac code is then converted into assembly code
+                  while mantaining the registers and memory locations in a 
+                  separate data structure. This part is completey written in C++.
+                  Finally, the assembly code is written to a file and is run 
+                  using <a href="https://www.nasm.us/" class="text-link" target="_blank">NASM</a>.
+
+                </li>
+              </ul>
+            </p>
+          </li>
+          <li>
+            <h3>Evaluating Cache Security</h3>
+            <i
+              >Supervised by:
+              <a href="https://www.cse.iitk.ac.in/users/deba/" class="text-link" target="_blank"
+                >Dr. Debadatta Mishra</a
+              ></i
+            >
+            <br />
+            <i>Computer Architecture, Sep'22-Nov-22</i>
+            <p>
+              The aim of this project was to evaluate the security of the cache
+              memory. We highlighted the vulnerabilities faced due to shared 
+              cache memory and posibilities of cache-based <b>side-channel attacks</b>.
+              The simulations were done on associative cache memory with
+              random replacement using
+              <a href="https://github.com/0xADE1A1DE/CacheFX" class="text-link" target="_blank">CacheFX</a>.
+            </p>
+            <p>
+              We created eviciton set for the cache using three algorithms: 
+              Single Holdout Method(SHM), Group Elimination Method(GEM) and
+              Prime+Prune+Probe(3P) and compared their compute time, accuracy
+              and memory usage.
+            </p>
+            <p>
+              <b>Sample Scenario:</b> Suppose a process is running on a system
+              and contains some sensitive data. Just before the data is about to be accessed,
+              the attacker can run a process which will evict the data from the cache.
+              Thus, when the sensitive data is fetched from the memory, it will be
+              loaded into the cache. The attacker can then use the eviction set to
+              identify the sensitive data.
+              <br>
+              However, building an eviction set is a costly task and cannot be 
+              created in such a short time. But with increasing computational 
+              power, these kinds of attacks may be a threat in the future.
+            </p>
+          </li>
+          <li>
+            <h3>Web Chat App</h3>
+            <i
+              >Supervised by:
+              <a href="https://cse.iitk.ac.in/users/isaha/" class="text-link" target="_blank"
+                >Dr. Indranil Saha</a
+              ></i
+            >
+            <br />
+            <i>Software Development, Jan'22-Apr-22</i>
+            <p>
+              Created a chatting app for IITK students. Made using 
+              <a href="https://nodejs.org/en" class="text-link" target="_blank">NodeJS</a>,
+              this app allows users to send requests and chat with other users.
+              The chat room is created using
+              <a href="https://socket.io/" class="text-link" target="_blank">Socket.IO</a>.
+              Also added an OTP verification system to verify the users.
+              The login data is stored using 
+              <a href="https://www.mongodb.com/" class="text-link" target="_blank">MongoDB</a>
+              and sensitive data is hashed using
+              <b>MD5</b>.
+            </p>
+          </li>
+        </ul>
+        <h2>Self Projects</h2>
+        <ul>
+          <li>
+            <h3>Discord Chat Bot</h3>
+            <p>
+              Created a chat bot for Discord using
+              <a href="https://discord.js.org/" class="text-link" target="_blank">discordpy</a>.
+              The bot is trained over transcript of Rick and Morty.
+              Data is encoded using <a href="https://medium.com/@cmukesh8688/tf-idf-vectorizer-scikit-learn-dbc0244a911a" class="text-link" target="_blank">TFIDFVectorizer</a>
+              and the model is trained using <a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html" class="text-link" target="_blank">Support Vector Machine</a>
+              i.e., the results generated by the bot are deterministic and
+              a small set of responses are generated.
+
   
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
-  <link rel = "icon" href ="https://redbotsecurity.com/wp-content/uploads/2018/04/pentesting-icon.png" type = "image/x-icon">
-  <title>AbhinavIITK</title> 
-  <link href="./main.3f6952e4.css" rel="stylesheet">
-</head>
+            </p>
+            <p>
+              <b>Code:</b> <a href="https://github.com/Abhi575k/discord-chatbot/tree/main" class="text-link" target="_blank">https://github.com/Abhi575k/discord-chatbot/tree/main</a>
+            </p>
+          </li>
+          <li>
+            <h3>Mail Spam Detector</h3>
+            <p>
+              Created a spam detector for emails using
+              Spam-Ham dataset from kaggle. The data is preprocessed using
+              <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html" class="text-link" target="_blank">Count Vectorizer</a>
+              and the model is trained using
+              <a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html" class="text-link" target="_blank">Multinomial Naive Bayes</a>.
 
-<body class="minimal">
-  <div id="site-border-left"></div>
-  <div id="site-border-right"></div>
-  <div id="site-border-top"></div>
-  <div id="site-border-bottom"></div>
-  <header>
-    <nav class="navbar  navbar-fixed-top navbar-inverse">
-      <div class="container">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+              I have created a front-end using Flask
+              which takes the input from the user and generates
+              the result using the pikle dumps of the model.
+            </p>
+            <p>
+              <b>Code:</b> <a href="https://github.com/Abhi575k/mail-spam-detector/tree/master" class="text-link" target="_blank"> https://github.com/Abhi575k/mail-spam-detector/tree/master</a>
+            </p>
+          </li>
+          <li>
+            <h3>Pentesting Docker</h3>
+            <p>
+              This project aims to automate the initial enumeration
+              of a machine. It creates an isolated and organised
+              environment for the user to perform scans. I have included
+              several tools like <b>nmap</b>, <b>ffuf</b>, <b>hydra</b>, etc. and
+              wordlist like <b>SecLists</b>.
+            </p>
+            <p>
+              <b>Code:</b> <a href="https://github.com/Abhi575k/pentesting-docker" class="text-link" target="_blank">https://github.com/Abhi575k/pentesting-docker</a>  
+            </p>
+          </li>
+          <li>
+            <h3>Product Query using LLMs</h3>
+            <p>
+              This project uses vector database -
+              <a href="https://qdrant.tech/" class="text-link" target="_blank">Qdrant</a>
+              for storing data and HuggingFace's
+              <a href="https://huggingface.co/sentence-transformers/multi-qa-MiniLM-L6-cos-v1" class="text-link" target="_blank">multi-qa-MiniLM-L6-cos-v1</a>
+               to encode and decode data and
+              <a href="https://huggingface.co/bert-large-uncased-whole-word-masking-finetuned-squad" class="text-link" target="_blank">bert-large-uncased-whole-word-masking-finetuned-squad</a>
+               to generate query.
+              The user can enter a query
+              and the system will return the most relevant products along with 
+              the answers to the query.
+            </p>
+            <p>
+              <b>Code:</b> <a href="https://github.com/Abhi575k/product-query" class="text-link" target="_blank">https://github.com/Abhi575k/product-query</a>
+            </p>
+          </li>
+          <li>
+            <h3>To Do List App</h3>
+            <p>
+              Created a To Do List app using
+              <a href="https://nodejs.org/en" class="text-link" target="_blank">NodeJS</a>.
+              The user can add and delete tasks. The tasks are stored
+              in a database using
+              <a href="https://www.mongodb.com/" class="text-link" target="_blank">MongoDB</a>.
+            </p>
+            <p>
+              <b>Code:</b> <a href="https://github.com/Abhi575k/to-do-app" class="text-link" target="_blank">https://github.com/Abhi575k/to-do-app</a>
+            </p>
+          </li>
+        </ul>
+      </section>
 
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="nav navbar-nav ">
-            <li><a href="./index.html" title="">01 : Home</a></li>
-            <li><a href="./projects.html" title="">02 : Projects</a></li>
-            <li><a href="./about.html" title="">03 : About me</a></li>
-            <li><a href="./contact.html" title="">04 : Contact</a></li>
-            <li><a href="./more.html" title="">05 : More</a></li>
-          </ul>
-        </div> 
-      </div>
-    </nav>
-  </header>
-  <!-- Add your site or app content here -->
-    <div class="hero-full-container background-image-container white-text-container" style="background-image: url('./assets/images/space.jpg')">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="hero-full-wrapper">
-              <div class="text-content">
-                <h1>Hello,<br>
-                  <span id="typed-strings">
-                    <span>I'm Abhinav Kumar Singh</span>
-                    <span>Tech Enthusiast</span>
-                    <span>Sophomore</span>
-                  </span>
-                  <span id="typed"></span>
-                </h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      <section id="contact" class="anchor">
+        <h2>Contact Me</h2>
+        <p>
+          You can reach me at 
+          <a href="mailto:abhinavk20@iitk.ac.in" class="text-link" target="_blank">abhinavk20@iitk.ac.in</a>
+           or connect with me on
+          <a href="https://www.linkedin.com/in/abhinavk20/" class="text-link" target="_blank">LinkedIn</a>.
+        </p>
+      </section>
+    </main>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function (event) {
-      type();
-      movingBackgroundImage();
-    });
-  </script>
-
-
-  <script type="text/javascript" src="./main.70a66962.js"></script>
-</body>
-
+    <footer>
+      <p>&copy; 2023 Abhinav Kumar Singh. All rights reserved.</p>
+    </footer>
+    <script>
+      function myFunction() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+      }
+    </script>
+  </body>
 </html>

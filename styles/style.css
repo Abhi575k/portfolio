@@ -1,0 +1,73 @@
+/* Global settings */
+* {
+    font-family: monospace;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+/* The navigation bar */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.85);
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 120; /* Always stay on top */
+  }
+  
+  /* Links inside the navbar */
+  .navbar a {
+    float: left;
+    display: block;
+    color: #7b7b7b;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change background on mouse-over */
+  .navbar a:hover {
+    background: #ddd;
+    color: black;
+  }
+
+.home {
+    padding-top: 100px;
+}
+  
+table, th, td {
+    border:1px solid;
+  }
+
+  /* Link Styles */
+  .text-link {
+    color: rgb(0, 67, 213);
+    text-decoration: none;
+    
+    position: relative;
+    z-index: 1;
+    padding: 3px;
+    margin: -3px;
+    
+    background: linear-gradient(to right, rgb(223, 223, 223), rgb(223, 223, 223)) no-repeat right;
+    background-size: 0% auto;
+    
+    transition: background-size 0.3s, background-position 0s;
+   
+    &:hover {
+      background-size: 100% auto;
+      background-position: left;
+    }
+    
+    span {
+        mix-blend-mode: difference;
+    }
+  }
+
+  .anchor {
+    padding-top: 100px;
+    margin-top: -100px;
+}
