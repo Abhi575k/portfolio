@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abhinav Kumar Singh</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <h1 class="logo">Abhinav Kumar Singh</h1>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#workexp">Work-Ex</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#contact">Contact</a>
+      <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
+    </header>
+
+    <main>
+      <section class="home" id="home" class="anchor"></section>
+      <h1>Devvortex.htb</h1>
+      <h2>Scanning</h2>
+      <b>Nmap Scan</b>
+      <p>
+        I start off with a <b>Fast TCP Nmap Scan</b> to detect all the common
+        ports.
+        <br />
+        <br />
+        <i>nmap -F -sS devvortex.htb</i>
+        <br />
+        <br />
+        We find two open ports: <b>22</b> serving SSH and <b>80</b> serving
+        HTTP. I do another <b>Full Connect Nmap Scan</b> to detect all the
+        ports.
+        <br />
+        <br />
+        <i>nmap -p- -sT devvortex.htb</i>
+        <br />
+        <br />
+        Surprisingly, it shows port <b>53</b> in filtered state with service
+        "domain" running on it.
+      </p>
+      <b>Gobuster Dir</b>
+      <p>
+        Next, I do a directory enumeration to find any vulnerable or hidden
+        files on the server.
+        <br />
+        <br />
+        <i>
+          gobuster dir -u devvortex.htb/ -w
+          /opt/SecLists/Discovery/Web-Content/directory-list-2.3-big.txt -x
+          php,txt
+        </i>
+        <br />
+        <br />
+        Sadly, nothing of much notice is found. Visiting the site, I find a
+        template site working on minimal frontend and no form handling.
+      </p>
+      <b>Gobuster dns</b>
+      <p>
+        I do a DNS enumeration to find any subdomains that might be present.
+        <br />
+        <br />
+        <i>
+          gobuster dns -d devvortex.htb -w
+          /opt/SecLists/Discovery/DNS/subdomains-top1million-5000.txt
+        </i>
+        <br />
+        <br />
+        It shows a subdomain <b>dev.devvortex.htb</b> which is a nameserver.
+        Visiting the site, I again find a site working mainly on frontend.
+        <br />
+        Doing a <b>gobuster dir</b> on this subdomain,
+        <br />
+        <br />
+        <i>
+          gobuster dir -u dev.devvortex.htb/ -w
+          /opt/SecLists/Discovery/Web-Content/directory-list-2.3-big.txt -x
+          php,txt
+        </i>
+        <br />
+        <br />
+        I find pages indicating that it runs on <b>Joomla v4.2</b>. Also, a page
+        "administrator" is found which is a login page for Joomla.
+      </p>
+      <h2>Exploitation</h2>
+      <b>Exploit-db</b>
+      <p>
+        I try to login with default credentials but it doesn't work. I search
+        for vulnerabilities in Joomla v4.2 at exploit-db and find a
+        vulnerability written in ruby that gives us the credentials of the
+        admin. It can be found here:
+        <a
+          href="https://www.exploit-db.com/exploits/51334"
+          class="text-link"
+          target="_blank"
+        >
+          https://www.exploit-db.com/exploits/51334
+        </a>
+      </p>
+      <b>Getting a Reverse Shell</b>
+      <p>
+        I use the credentials to login to the admin panel and find a page to
+        upload files. I upload a php reverse shell and get a reverse shell as
+        www-data.
+        <br />
+        <br />
+        <i> nc -lvnp 1234 </i>
+        <br />
+        <br />
+        The reverse shell can be found here:
+        <a
+          href="https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php"
+          class="text-link"
+          target="_blank"
+        >
+          php-reverse-shell.php
+        </a>
+        <br />
+        There are not enough permissions to read the user flag. But from my nmap
+        scans, I know that it is using mysql. Logging into mysql, I find a
+        database which contains the hases of credentials of the users. On
+        examining the hash, it is encrypted using bcrypt(blowfish). I crack the
+        hash of the user "logan" using hashcat.
+        <br />
+        <br />
+        <i> hashcat -a 3 -m 3200 hash.txt /usr/share/wordlists/rockyou.txt </i>
+        <br />
+        <br />
+        The password is cracked and I login as logan and get the user.txt flag.
+        Next, I use <i>sudo -l</i> to find the permissions of the user. It shows
+        that the user can run <i>sudo /usr/bin/apport-cli</i> as root. I search
+        for vulnerabilities in apport-cli and find a vulnerability that allows
+        us to run commands as root. It can be found here:
+        <a
+          href="https://github.com/diego-tella/CVE-2023-1326-PoC"
+          class="text-link"
+          target="_blank"
+          >CVE-2023-1326-PoC</a
+        >.
+        <br />
+        And we get the root flag.
+      </p>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Abhinav Kumar Singh. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
