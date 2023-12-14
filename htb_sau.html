@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abhinav Kumar Singh</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <h1 class="logo">Abhinav Kumar Singh</h1>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#workexp">Work-Ex</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#contact">Contact</a>
+      <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
+    </header>
+
+    <main>
+      <section class="home" id="home" class="anchor"></section>
+      <h1>Sau.htb</h1>
+      <h2>Scanning</h2>
+      <p>
+        I run a complete <b>nmap scan</b> which shows that port 80 is running
+        http service, port 22 is running ssh service and port 3476 is running a
+        nppmp and port 55555 is running an unknown service. What is mysterious
+        is that port 80 and 3476 are filtered.
+        <br />
+        <br />
+        <i>nmap -A -Pn -sV sau.htb</i>
+        <br />
+        <br />
+        However, port 55555 is also serving a webpage. Upon visiting it, I found
+        that it is a <b>Request Basket Site</b>. Users can request a basket and
+        the server will return a unique URL for the basket. The user can then
+        add items to the basket using the URL. The server is running
+        <b>RequestBin</b> which is an open-source alternative to the popular web
+        service
+        <a href="https://rbaskets.in/web" class="text-link">rbaskets</a>. I
+        initially tried uploading various reverse shells - php, JavaScript, bash
+        etc., using
+        <a
+          href="https://www.warp.dev/terminus/curl-post-request"
+          class="text-link"
+          >curl POST requests</a
+        >
+        but none of them worked. Then I google search for any exploits it may
+        have. I find that it is vulnerable to
+        <b>Server-Side Request Forgery</b>. A more detailed explanation can be
+        found here:
+        <a
+          href="https://medium.com/@li_allouche/request-baskets-1-2-1-server-side-request-forgery-cve-2023-27163-2bab94f201f7"
+          class="text-link"
+          target="_blank"
+          >Request-Baskets 1.2.1 Server-Side Request Forgery</a
+        >
+        and the Proof Of Concept can be found here:
+        <a
+          href="https://github.com/entr0pie/CVE-2023-27163"
+          class="text-link"
+          target="_blank"
+          >CVE-2023-27163</a
+        >.
+      </p>
+      <h2>Exploitation</h2>
+      <p>
+        The exploit uses the SSRF vulnerability to make a request to the
+        <b>RequestBin</b> server to forward the request to the filtered port.
+        And indeed we are able to access port 80 of the server through the bin.
+        The following payload creates the request:
+        <br />
+        <br />
+        <i
+          >PAYLOAD="{\"forward_url\": \"$ATTACKER_SERVER\",\"proxy_response\":
+          true,\"insecure_tls\": false,\"expand_path\": true,\"capacity\":
+          250}";</i
+        >
+        <br />
+        <br />
+        This site seems to be running
+        <a
+          href="https://github.com/stamparm/maltrail/blob/master/README.md"
+          class="text-link"
+          >Maltrail</a
+        >
+        which is a malicious traffic detection service. I again search for any
+        exploits over googls and immediately find a python script that can be
+        used to get a reverse shell. The script can be found here:
+        <a
+          href="https://github.com/spookier/Maltrail-v0.53-Exploit"
+          class="text-link"
+          target="_blank"
+          >https://github.com/spookier/Maltrail-v0.53-Exploit</a
+        >. It runs on Command Injection and exploits the fact thta Maltrail does
+        not sanitize the input in username field. Using the script, we get a
+        reverse shell as user "puma" and successfully get the user flag.
+      </p>
+      <h2>Privilege Escalation</h2>
+      <p>
+        Running <i>sudo -l</i>, we get to know that we can run
+        <i>systemctl status trail.service</i> as root. On running the command,
+        it prints the status using vim but it does not exit the text editor. We
+        can simply get a shell inside vim which gives us root privileges and we
+        get the root flag.
+      </p>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Abhinav Kumar Singh. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

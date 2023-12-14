@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abhinav Kumar Singh</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <h1 class="logo">Abhinav Kumar Singh</h1>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#workexp">Work-Ex</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#contact">Contact</a>
+      <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
+    </header>
+
+    <main>
+      <section class="home" id="home" class="anchor"></section>
+      <h1>Codify.htb</h1>
+      <h2>Scanning</h2>
+      <p>
+        Doing a nmap scan, I find three open ports: <b>22</b> serving SSH,
+        <b>80</b> serving HTTP and <b>3000</b> stating some service called ppp.
+        <br />
+        <br />
+        <i>nmap -F -sS 10.10.11.239</i>
+        <br />
+        <br />
+        On a more detailed scan, it shows that the port 3000 is running a HTTP
+        server serving <b>Node.js Express Framework</b>.
+        <br />
+        <br />
+        <i>nmap -A -sV 10.10.11.239</i>
+      </p>
+      <h2>Enumeration</h2>
+      <p>
+        Visiting the site, we find a code testing site where we can write code
+        for <b>NodeJS</b> and the server runs it on a sandbox.
+        <br />
+        <br />
+        <b>What is a Sandbox?</b>
+        <br />
+        A sandbox environment is an isolated virtual machine in which
+        potentially unsafe software code can execute without affecting network
+        resources or local applications. Think of a sandbox as a controlled
+        playground where applications, code, and files can be tested or executed
+        to see how they behave. If the software behaves maliciously or
+        unexpectedly, it doesn't have the power to affect anything outside of
+        that contained environment.
+        <br />
+        <br />
+        However, the sandbox application being used here is <b>vm2 v3.9.16</b>.
+        A few google searches show that it is vulnerable to
+        <b>arbitrary code execution</b>. More info about the exploit can be
+        found here:
+        <a
+          href="https://www.cybersecurity-help.cz/vdb/SB2023042016"
+          class="text-link"
+          target="_blank"
+          >Sandbox Escape in vm2</a
+        >, and the exploit can be found here:
+        <a
+          href="https://github.com/rvizx/CVE-2023-30547"
+          class="text-link"
+          target="_blank"
+          >CVE-2023-30547</a
+        >. The exploit hard-codes the HTTP request to get a reverse shell.
+        However, the website configuration does not allow us to run more than
+        one command per request. So, I create a SSH key pair and upload the
+        public key to the server. Then, I use the exploit to run a command to
+        add the public key to the authorized_keys file. Then, I use the private
+        key to login to the server as user "svc". We are still not able to
+        access the user flag. I search the directories and find a tickets.db
+        file. I use sqlite3 to open the file and find a table named "users" and
+        find the hash of the password for the user "joshua".
+        <br />
+        <br />
+        <i>sqlite3 tickets.db</i>
+        <i>select * from users</i>
+        <br />
+        <br />
+        The hash is encrypted using bcrypt(blowfish). I crack the hash using
+        John the Ripper.
+        <br />
+        <br />
+        <i
+          >john --format=bcrypt --wordlist=/usr/share/wordlists/rockyou.txt
+          hash.txt</i
+        >
+        <br />
+        <br />
+        After logging in, we get the user flag. Then I do <i>sudo -l</i> to find
+        all the files that can be run as root by the user. We find the file
+        <i>/opt/scripts/mysql-backup.sh</i>. On opening the file, we find that
+        it is running a mysql backup script as root. We cannot edit the file but
+        the password checking logic has the following code.
+        <br />
+        <br />
+        <i>if [[ $DB_PASS == $USER_PASS ]]; then</i>
+        <br />
+        <br />
+        This line is used for <b>Pattern Matching</b> instead of string
+        matching. So if we give "*" as input, it will execute. So we can
+        brute-force the password character by character by using * at the end.
+        And sure enough, we get the password for root as well.
+        <br />
+        <br />
+        Logging into the root user, we get the root flag.
+      </p>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Abhinav Kumar Singh. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
